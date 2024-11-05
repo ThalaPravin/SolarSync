@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Smart Metering PRO",
+    "status": "Approved",
+    "date": "18 Apr 2022",
+    "progress": 75.5  
+  },
+  {
+    "name": "Smart Metering Free",
+    "status": "Disable",
+    "date": "18 Apr 2022",
+    "progress": 25.5  
+  },
+  {
+    "name": "Energy Consumption Monitoring",
+    "status": "Error",
+    "date": "20 May 2021",
+    "progress": 90  
+  },
+  {
+    "name": "Monthly Reports",
+    "status": "Approved",
+    "date": "12 Jul 2021",
+    "progress": 50.5  
+  }
+]

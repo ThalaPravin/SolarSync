@@ -1,0 +1,80 @@
+[
+  {
+    "name": ["Solar Energy Usage", true],
+    "quantity": 2458,
+    "date": "12.Jan.2021",
+    "progress": 80.0
+  },
+  {
+    "name": ["Electricity Usage", false],
+    "quantity": 1485,
+    "date": "21.Feb.2021",
+    "progress": 35.4
+  },
+  {
+    "name": ["Switch to Solar", true],
+    "quantity": 1024,
+    "date": "13.Mar.2021",
+    "progress": 50.0
+  },
+  {
+    "name": ["High Rate Alert", true],
+    "quantity": 858,
+    "date": "24.Jan.2021",
+    "progress": 100
+  },
+  {
+    "name": ["Solar Energy Usage", false],
+    "quantity": 258,
+    "date": "Oct 24, 2022",
+    "progress": 75.5
+  },
+  {
+    "name": ["Electricity Usage", false],
+    "quantity": 258,
+    "date": "Oct 24, 2022",
+    "progress": 70.5
+  },
+  {
+    "name": ["Switch to Solar", false],
+    "quantity": 258,
+    "date": "12.Jan.2021",
+    "progress": 60.0
+  },
+  {
+    "name": ["High Rate Alert", false],
+    "quantity": 858,
+    "date": "21.Feb.2021",
+    "progress": 40.0
+  },
+  {
+    "name": ["Smart Scheduling", true],
+    "quantity": 1024,
+    "date": "13.Mar.2021",
+    "progress": 90.0
+  },
+  {
+    "name": ["Energy Savings", false],
+    "quantity": 258,
+    "date": "24.Jan.2021",
+    "progress": 50.0
+  },
+  {
+    "name": ["Solar Energy Usage", false],
+    "quantity": 1024,
+    "date": "Oct 24, 2022",
+    "progress": 80.0
+  },
+  {
+    "name": ["Electricity Usage", false],
+    "quantity": 258,
+    "date": "Oct 24, 2022",
+    "progress": 65.0
+  },
+  {
+    "name": ["Smart Scheduling", false],
+    "quantity": 258,
+    "date": "Oct 24, 2022",
+    "progress": 100.0
+  }
+]

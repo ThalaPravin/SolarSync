@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Solar Shifting Optimization",
+    "tech": ["solar", "battery", "grid"],
+    "date": "12.Jan.2021",
+    "progress": 75.5
+  },
+  {
+    "name": "Peak Hour Monitoring",
+    "tech": ["grid"],
+    "date": "21.Feb.2021",
+    "progress": 35.4
+  },
+  {
+    "name": "Battery Health Analysis",
+    "tech": ["solar", "battery"],
+    "date": "13.Mar.2021",
+    "progress": 25
+  },
+  {
+    "name": "Power Usage Report",
+    "tech": ["solar", "battery", "grid"],
+    "date": "24.Jan.2021",
+    "progress": 100
+  },
+  {
+    "name": "Energy Cost Prediction",
+    "tech": ["solar", "grid"],
+    "date": "Oct 24, 2022",
+    "progress": 75.5
+  },
+  {
+    "name": "Smart Device Management",
+    "tech": ["solar", "battery", "grid"],
+    "date": "Oct 24, 2022",
+    "progress": 75.5
+  },
+  {
+    "name": "Dynamic Load Balancing",
+    "tech": ["solar", "battery", "grid"],
+    "date": "12.Jan.2021",
+    "progress": 75.5
+  },
+  {
+    "name": "Peak Hour Monitoring",
+    "tech": ["grid"],
+    "date": "21.Feb.2021",
+    "progress": 35.4
+  },
+  {
+    "name": "Battery Health Analysis",
+    "tech": ["solar", "battery"],
+    "date": "13.Mar.2021",
+    "progress": 25
+  },
+  {
+    "name": "Power Usage Report",
+    "tech": ["solar", "battery", "grid"],
+    "date": "24.Jan.2021",
+    "progress": 100
+  },
+  {
+    "name": "Energy Cost Prediction",
+    "tech": ["solar", "grid"],
+    "date": "Oct 24, 2022",
+    "progress": 75.5
+  }
+]

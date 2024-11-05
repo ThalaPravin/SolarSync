@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Switch Refrigerator to Solar",
+    "status": "Approved",
+    "date": "18 Apr 2022",
+    "progress": 75.5  
+  },
+  {
+    "name": "Optimize Heating System",
+    "status": "Pending",
+    "date": "18 Apr 2022",
+    "progress": 50.5  
+  },
+  {
+    "name": "Smart Meter Implementation",
+    "status": "Error",
+    "date": "20 May 2021",
+    "progress": 90  
+  },
+  {
+    "name": "Energy Consumption Monitoring",
+    "status": "Approved",
+    "date": "12 Jul 2021",
+    "progress": 80.0  
+  },
+  {
+    "name": "Schedule High-Energy Appliances",
+    "status": "Pending",
+    "date": "15 Aug 2022",
+    "progress": 60.0  
+  },
+  {
+    "name": "Switch Off Unused Devices",
+    "status": "Approved",
+    "date": "25 Sep 2022",
+    "progress": 90.0  
+  },
+  {
+    "name": "Install Smart Thermostat",
+    "status": "In Progress",
+    "date": "30 Sep 2022",
+    "progress": 30.0  
+  },
+  {
+    "name": "Review Energy Plans",
+    "status": "Approved",
+    "date": "05 Oct 2022",
+    "progress": 70.0  
+  }
+]

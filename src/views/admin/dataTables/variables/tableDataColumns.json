@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Air Conditioner",
+    "quantity": 2458,
+    "date": "25.Oct.2024",
+    "progress": 75.5  
+  },
+  {
+    "name": "Refrigerator",
+    "quantity": 1485,
+    "date": "25.Oct.2024",
+    "progress": 35.4  
+  },
+  {
+    "name": "Washing Machine",
+    "quantity": 1024,
+    "date": "25.Oct.2024",
+    "progress": 25  
+  },
+  {
+    "name": "Electric Heater",
+    "quantity": 858,
+    "date": "25.Oct.2024",
+    "progress": 100  
+  },
+  {
+    "name": "Microwave Oven",
+    "quantity": 520,
+    "date": "25.Oct.2024",
+    "progress": 55.6  
+  },
+  {
+    "name": "Vacuum Cleaner",
+    "quantity": 1123,
+    "date": "25.Oct.2024",
+    "progress": 40.3  
+  },
+  {
+    "name": "Iron",
+    "quantity": 789,
+    "date": "25.Oct.2024",
+    "progress": 65.2  
+  },
+  {
+    "name": "Dishwasher",
+    "quantity": 602,
+    "date": "25.Oct.2024",
+    "progress": 48.9  
+  },
+  {
+    "name": "Ceiling Fan",
+    "quantity": 3905,
+    "date": "25.Oct.2024",
+    "progress": 90  
+  },
+  {
+    "name": "Electric Kettle",
+    "quantity": 1348,
+    "date": "25.Oct.2024",
+    "progress": 80.1  
+  }
+]
