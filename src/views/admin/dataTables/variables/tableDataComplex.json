@@ -1,80 +1,80 @@
 [
   {
-    "name": ["Solar Energy Usage", true],
-    "quantity": 2458,
-    "date": "12.Jan.2021",
-    "progress": 80.0
+    "device": "Dishwasher",
+    "energyType": "Renewable",
+    "time": "08:30 AM",
+    "energySavings": 3.5
   },
   {
-    "name": ["Electricity Usage", false],
-    "quantity": 1485,
-    "date": "21.Feb.2021",
-    "progress": 35.4
+    "device": "Washing Machine",
+    "energyType": "Non-renewable",
+    "time": "09:15 AM",
+    "energySavings": 2.8
   },
   {
-    "name": ["Switch to Solar", true],
-    "quantity": 1024,
-    "date": "13.Mar.2021",
-    "progress": 50.0
+    "device": "Iron",
+    "energyType": "Renewable",
+    "time": "10:45 AM",
+    "energySavings": 1.2
   },
   {
-    "name": ["High Rate Alert", true],
-    "quantity": 858,
-    "date": "24.Jan.2021",
-    "progress": 100
+    "device": "Electric Kettle",
+    "energyType": "Non-renewable",
+    "time": "11:20 AM",
+    "energySavings": 0.6
   },
   {
-    "name": ["Solar Energy Usage", false],
-    "quantity": 258,
-    "date": "Oct 24, 2022",
-    "progress": 75.5
+    "device": "Refrigerator",
+    "energyType": "Renewable",
+    "time": "02:00 PM",
+    "energySavings": 4.0
   },
   {
-    "name": ["Electricity Usage", false],
-    "quantity": 258,
-    "date": "Oct 24, 2022",
-    "progress": 70.5
+    "device": "Microwave Oven",
+    "energyType": "Non-renewable",
+    "time": "03:30 PM",
+    "energySavings": 1.5
   },
   {
-    "name": ["Switch to Solar", false],
-    "quantity": 258,
-    "date": "12.Jan.2021",
-    "progress": 60.0
+    "device": "Air Conditioner",
+    "energyType": "Renewable",
+    "time": "04:15 PM",
+    "energySavings": 6.0
   },
   {
-    "name": ["High Rate Alert", false],
-    "quantity": 858,
-    "date": "21.Feb.2021",
-    "progress": 40.0
+    "device": "Ceiling Fan",
+    "energyType": "Non-renewable",
+    "time": "05:00 PM",
+    "energySavings": 0.8
   },
   {
-    "name": ["Smart Scheduling", true],
-    "quantity": 1024,
-    "date": "13.Mar.2021",
-    "progress": 90.0
+    "device": "Laptop Charger",
+    "energyType": "Renewable",
+    "time": "06:30 PM",
+    "energySavings": 0.5
   },
   {
-    "name": ["Energy Savings", false],
-    "quantity": 258,
-    "date": "24.Jan.2021",
-    "progress": 50.0
+    "device": "Hair Dryer",
+    "energyType": "Non-renewable",
+    "time": "07:45 PM",
+    "energySavings": 0.9
   },
   {
-    "name": ["Solar Energy Usage", false],
-    "quantity": 1024,
-    "date": "Oct 24, 2022",
-    "progress": 80.0
+    "device": "Water Heater",
+    "energyType": "Renewable",
+    "time": "08:00 PM",
+    "energySavings": 3.2
   },
   {
-    "name": ["Electricity Usage", false],
-    "quantity": 258,
-    "date": "Oct 24, 2022",
-    "progress": 65.0
+    "device": "Television",
+    "energyType": "Non-renewable",
+    "time": "09:15 PM",
+    "energySavings": 1.1
   },
   {
-    "name": ["Smart Scheduling", false],
-    "quantity": 258,
-    "date": "Oct 24, 2022",
-    "progress": 70.0
+    "device": "Toaster",
+    "energyType": "Renewable",
+    "time": "10:30 PM",
+    "energySavings": 0.4
   }
 ]

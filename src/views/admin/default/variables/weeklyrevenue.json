@@ -1,0 +1,38 @@
+[
+    {
+      "date": "2024-11-01",
+      "solar": 70,
+      "electrical": 30
+    },
+    {
+      "date": "2024-11-02",
+      "solar": 65,
+      "electrical": 35
+    },
+    {
+      "date": "2024-11-03",
+      "solar": 80,
+      "electrical": 20
+    },
+    {
+      "date": "2024-11-04",
+      "solar": 75,
+      "electrical": 25
+    },
+    {
+      "date": "2024-11-05",
+      "solar": 60,
+      "electrical": 40
+    },
+    {
+      "date": "2024-11-06",
+      "solar": 55,
+      "electrical": 45
+    },
+    {
+      "date": "2024-11-07",
+      "solar": 85,
+      "electrical": 15
+    }
+  ]
+  

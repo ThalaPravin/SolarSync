@@ -1,50 +1,80 @@
 [
   {
-    "name": "Switch Refrigerator to Solar",
-    "status": "Approved",
-    "date": "18 Apr 2022",
-    "progress": 75.5  
+    "device": "Dishwasher",
+    "energyType": "Solar",
+    "time": "08:30 AM",
+    "energySavings": 3.5
   },
   {
-    "name": "Optimize Heating System",
-    "status": "Pending",
-    "date": "18 Apr 2022",
-    "progress": 50.5  
+    "device": "Washing Machine",
+    "energyType": "Electric",
+    "time": "09:15 AM",
+    "energySavings": 2.8
   },
   {
-    "name": "Smart Meter Implementation",
-    "status": "Error",
-    "date": "20 May 2021",
-    "progress": 90  
+    "device": "Iron",
+    "energyType": "Solar",
+    "time": "10:45 AM",
+    "energySavings": 1.2
   },
   {
-    "name": "Energy Consumption Monitoring",
-    "status": "Approved",
-    "date": "12 Jul 2021",
-    "progress": 80.0  
+    "device": "Electric Kettle",
+    "energyType": "Electric",
+    "time": "11:20 AM",
+    "energySavings": 0.6
   },
   {
-    "name": "Schedule High-Energy Appliances",
-    "status": "Pending",
-    "date": "15 Aug 2022",
-    "progress": 60.0  
+    "device": "Refrigerator",
+    "energyType": "Solar",
+    "time": "02:00 PM",
+    "energySavings": 4.0
   },
   {
-    "name": "Switch Off Unused Devices",
-    "status": "Approved",
-    "date": "25 Sep 2022",
-    "progress": 90.0  
+    "device": "Microwave Oven",
+    "energyType": "Electric",
+    "time": "03:30 PM",
+    "energySavings": 1.5
   },
   {
-    "name": "Install Smart Thermostat",
-    "status": "In Progress",
-    "date": "30 Sep 2022",
-    "progress": 30.0  
+    "device": "Air Conditioner",
+    "energyType": "Solar",
+    "time": "04:15 PM",
+    "energySavings": 6.0
   },
   {
-    "name": "Review Energy Plans",
-    "status": "Approved",
-    "date": "05 Oct 2022",
-    "progress": 70.0  
+    "device": "Ceiling Fan",
+    "energyType": "Electric",
+    "time": "05:00 PM",
+    "energySavings": 0.8
+  },
+  {
+    "device": "Laptop Charger",
+    "energyType": "Solar",
+    "time": "06:30 PM",
+    "energySavings": 0.5
+  },
+  {
+    "device": "Hair Dryer",
+    "energyType": "Electric",
+    "time": "07:45 PM",
+    "energySavings": 0.9
+  },
+  {
+    "device": "Water Heater",
+    "energyType": "Solar",
+    "time": "08:00 PM",
+    "energySavings": 3.2
+  },
+  {
+    "device": "Television",
+    "energyType": "Electric",
+    "time": "09:15 PM",
+    "energySavings": 1.1
+  },
+  {
+    "device": "Toaster",
+    "energyType": "Solar",
+    "time": "10:30 PM",
+    "energySavings": 0.4
   }
 ]

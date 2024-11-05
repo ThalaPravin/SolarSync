@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Icon,
-  Progress,
   Table,
   Tbody,
   Td,
@@ -24,20 +23,30 @@ import {
 import Card from 'components/card/Card';
 import Menu from 'components/menu/MainMenu';
 import * as React from 'react';
-import { MdCancel, MdCheckCircle, MdOutlineError } from 'react-icons/md';
+import { MdCancel, MdCheckCircle, MdOutlineError, MdWbSunny, MdBolt } from 'react-icons/md';
 
 const columnHelper = createColumnHelper();
 
-// const columns = columnsDataCheck;
-export default function ComplexTable(props) {
+export default function EnergySavingsTable(props) {
   const { tableData } = props;
+  console.log("this is complex table data ", tableData);
+  console.log("Received tableData:", tableData); // Debug: Check if data is received correctly
+
   const [sorting, setSorting] = React.useState([]);
   const textColor = useColorModeValue('secondaryGray.900', 'white');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.100');
-  let defaultData = tableData;
+
+  // Set data from props directly to ensure updates
+  const [data, setData] = React.useState(tableData || []);
+  
+  React.useEffect(() => {
+    console.log("Updated tableData:", tableData); // Debug: Check if tableData updates
+    setData(tableData || []);
+  }, [tableData]); // Update data if tableData changes
+
   const columns = [
-    columnHelper.accessor('name', {
-      id: 'name',
+    columnHelper.accessor('device', {
+      id: 'device',
       header: () => (
         <Text
           justifyContent="space-between"
@@ -45,7 +54,7 @@ export default function ComplexTable(props) {
           fontSize={{ sm: '10px', lg: '12px' }}
           color="gray.400"
         >
-          NAME
+          Device
         </Text>
       ),
       cell: (info) => (
@@ -56,8 +65,8 @@ export default function ComplexTable(props) {
         </Flex>
       ),
     }),
-    columnHelper.accessor('status', {
-      id: 'status',
+    columnHelper.accessor('energyType', {
+      id: 'energyType',
       header: () => (
         <Text
           justifyContent="space-between"
@@ -65,7 +74,7 @@ export default function ComplexTable(props) {
           fontSize={{ sm: '10px', lg: '12px' }}
           color="gray.400"
         >
-          STATUS
+          Energy Type
         </Text>
       ),
       cell: (info) => (
@@ -75,22 +84,22 @@ export default function ComplexTable(props) {
             h="24px"
             me="5px"
             color={
-              info.getValue() === 'Approved'
+              info.getValue() === 'Solar'
+                ? 'yellow.500'
+                : info.getValue() === 'Electric'
+                ? 'blue.500'
+                : info.getValue() === 'E'
                 ? 'green.500'
-                : info.getValue() === 'Disable'
-                ? 'red.500'
-                : info.getValue() === 'Error'
-                ? 'orange.500'
-                : null
+                : 'red.500'  // Default for non-renewable or unknown types
             }
             as={
-              info.getValue() === 'Approved'
+              info.getValue() === 'Solar'
+                ? MdWbSunny  // Sun icon for Solar
+                : info.getValue() === 'Electric'
+                ? MdBolt  // Bolt icon for Electric
+                : info.getValue() === 'Renewable'
                 ? MdCheckCircle
-                : info.getValue() === 'Disable'
-                ? MdCancel
-                : info.getValue() === 'Error'
-                ? MdOutlineError
-                : null
+                : MdCancel  // Default for non-renewable
             }
           />
           <Text color={textColor} fontSize="sm" fontWeight="700">
@@ -99,8 +108,8 @@ export default function ComplexTable(props) {
         </Flex>
       ),
     }),
-    columnHelper.accessor('date', {
-      id: 'date',
+    columnHelper.accessor('time', {
+      id: 'time',
       header: () => (
         <Text
           justifyContent="space-between"
@@ -108,7 +117,7 @@ export default function ComplexTable(props) {
           fontSize={{ sm: '10px', lg: '12px' }}
           color="gray.400"
         >
-          DATE
+          Time
         </Text>
       ),
       cell: (info) => (
@@ -117,8 +126,8 @@ export default function ComplexTable(props) {
         </Text>
       ),
     }),
-    columnHelper.accessor('progress', {
-      id: 'progress',
+    columnHelper.accessor('energySavings', {
+      id: 'energySavings',
       header: () => (
         <Text
           justifyContent="space-between"
@@ -126,23 +135,17 @@ export default function ComplexTable(props) {
           fontSize={{ sm: '10px', lg: '12px' }}
           color="gray.400"
         >
-          PROGRESS
+          Energy Savings (kWh)
         </Text>
       ),
       cell: (info) => (
-        <Flex align="center">
-          <Progress
-            variant="table"
-            colorScheme="brandScheme"
-            h="8px"
-            w="108px"
-            value={info.getValue()}
-          />
-        </Flex>
+        <Text color="green.500" fontSize="sm" fontWeight="700">
+          {info.getValue()} kWh
+        </Text>
       ),
     }),
   ];
-  const [data, setData] = React.useState(() => [...defaultData]);
+
   const table = useReactTable({
     data,
     columns,
@@ -154,6 +157,7 @@ export default function ComplexTable(props) {
     getSortedRowModel: getSortedRowModel(),
     debugTable: true,
   });
+
   return (
     <Card
       flexDirection="column"
@@ -168,7 +172,7 @@ export default function ComplexTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Complex Table
+          Smart Sceduling
         </Text>
         <Menu />
       </Flex>
@@ -177,34 +181,29 @@ export default function ComplexTable(props) {
           <Thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <Tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <Th
-                      key={header.id}
-                      colSpan={header.colSpan}
-                      pe="10px"
-                      borderColor={borderColor}
-                      cursor="pointer"
-                      onClick={header.column.getToggleSortingHandler()}
+                {headerGroup.headers.map((header) => (
+                  <Th
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    pe="10px"
+                    borderColor={borderColor}
+                    cursor="pointer"
+                    onClick={header.column.getToggleSortingHandler()}
+                  >
+                    <Flex
+                      justifyContent="space-between"
+                      align="center"
+                      fontSize={{ sm: '10px', lg: '12px' }}
+                      color="gray.400"
                     >
-                      <Flex
-                        justifyContent="space-between"
-                        align="center"
-                        fontSize={{ sm: '10px', lg: '12px' }}
-                        color="gray.400"
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                        {{
-                          asc: '',
-                          desc: '',
-                        }[header.column.getIsSorted()] ?? null}
-                      </Flex>
-                    </Th>
-                  );
-                })}
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                      {header.column.getIsSorted() ? header.column.getIsSorted() === 'asc' ? ' 🔼' : ' 🔽' : null}
+                    </Flex>
+                  </Th>
+                ))}
               </Tr>
             ))}
           </Thead>
@@ -212,27 +211,23 @@ export default function ComplexTable(props) {
             {table
               .getRowModel()
               .rows.slice(0, 5)
-              .map((row) => {
-                return (
-                  <Tr key={row.id}>
-                    {row.getVisibleCells().map((cell) => {
-                      return (
-                        <Td
-                          key={cell.id}
-                          fontSize={{ sm: '14px' }}
-                          minW={{ sm: '150px', md: '200px', lg: 'auto' }}
-                          borderColor="transparent"
-                        >
-                          {flexRender(
-                            cell.column.columnDef.cell,
-                            cell.getContext(),
-                          )}
-                        </Td>
-                      );
-                    })}
-                  </Tr>
-                );
-              })}
+              .map((row) => (
+                <Tr key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <Td
+                      key={cell.id}
+                      fontSize={{ sm: '14px' }}
+                      minW={{ sm: '150px', md: '200px', lg: 'auto' }}
+                      borderColor="transparent"
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </Td>
+                  ))}
+                </Tr>
+              ))}
           </Tbody>
         </Table>
       </Box>

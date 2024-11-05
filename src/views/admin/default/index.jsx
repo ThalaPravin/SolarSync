@@ -8,19 +8,11 @@ import {
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
-// Assets
-import Usa from 'assets/img/dashboards/usa.png';
-// Custom components
+import { MdWbSunny, MdFlashOn, MdCurrencyRupee } from 'react-icons/md';
 import MiniCalendar from 'components/calendar/MiniCalendar';
 import MiniStatistics from 'components/card/MiniStatistics';
 import IconBox from 'components/icons/IconBox';
 import React from 'react';
-import {
-  MdAddTask,
-  MdAttachMoney,
-  MdBarChart,
-  MdFileCopy,
-} from 'react-icons/md';
 import CheckTable from 'views/admin/default/components/CheckTable';
 import ComplexTable from 'views/admin/default/components/ComplexTable';
 import DailyTraffic from 'views/admin/default/components/DailyTraffic';
@@ -29,8 +21,6 @@ import Tasks from 'views/admin/default/components/Tasks';
 import TotalSpent from 'views/admin/default/components/TotalSpent';
 import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
 import {
-  
-  
   columnsDataCheck,
   columnsDataComplex,
 } from 'views/admin/default/variables/columnsData';
@@ -41,92 +31,47 @@ export default function UserReports() {
   // Chakra Color Mode
   const brandColor = useColorModeValue('brand.500', 'white');
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
+
+  // Sample values for energy difference
+  const solarEnergyProduced = 1200; // in kWh
+  const electricityUsage = 950; // in kWh
+  const energyDifference = solarEnergyProduced - electricityUsage;
+  const differenceColor = energyDifference >= 0 ? "green.500" : "red.500";
+
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
-     <SimpleGrid
-  columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }}
-  gap="20px"
-  mb="20px"
->
-  <MiniStatistics
-    startContent={
-      <IconBox
-        w="56px"
-        h="56px"
-        bg={boxBg}
-        icon={
-          <Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />
-        }
-      />
-    }
-    name="Total Energy Produced"
-    value="1200 kWh"
-  />
-  <MiniStatistics
-    startContent={
-      <IconBox
-        w="56px"
-        h="56px"
-        bg={boxBg}
-        icon={
-          <Icon w="32px" h="32px" as={MdAttachMoney} color={brandColor} />
-        }
-      />
-    }
-    name="Monthly Expenses"
-    value="₹345.67"
-  />
-  <MiniStatistics growth="+15%" name="Energy Savings" value="₹200.50" />
-  {/* <MiniStatistics
-    endContent={
-      <Flex me="-16px" mt="10px">
-        <FormLabel htmlFor="balance">
-          <Avatar src={Usa} />
-        </FormLabel>
-        <Select
-          id="balance"
-          variant="mini"
-          mt="5px"
-          me="0px"
-          defaultValue="usd"
-        >
-          <option value="usd">USD</option>
-          <option value="eur">EUR</option>
-          <option value="gbp">GBP</option>
-        </Select>
-      </Flex>
-    }
-    name="Current Balance"
-    value="₹500.00"
-  />
-  <MiniStatistics
-    startContent={
-      <IconBox
-        w="56px"
-        h="56px"
-        bg="linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)"
-        icon={<Icon w="28px" h="28px" as={MdAddTask} color="white" />}
-      />
-    }
-    name="Pending Requests"
-    value="45"
-  />
-  <MiniStatistics
-    startContent={
-      <IconBox
-        w="56px"
-        h="56px"
-        bg={boxBg}
-        icon={
-          <Icon w="32px" h="32px" as={MdFileCopy} color={brandColor} />
-        }
-      />
-    }
-    name="Total Customers"
-    value="850"
-  /> */}
-</SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }} gap="20px" mb="20px">
+        
+        {/* Total Solar Energy Produced */}
+        <MiniStatistics
+          startContent={
+            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="20px" h="20px" as={MdWbSunny} color={brandColor} />} />
+          }
+          name="Solar Production"
+          value={`${solarEnergyProduced} kWh`}
+        />
 
+        {/* Total Electricity Usage */}
+        <MiniStatistics
+          startContent={
+            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="25px" h="25px" as={MdFlashOn} color={brandColor} />} />
+          }
+          name="Electricity Usage"
+          value={`${electricityUsage} kWh`}
+          growth={`+${energyDifference} KWh`}
+        />
+        
+
+        {/* Monthly Expenses */}
+        <MiniStatistics
+          startContent={
+            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="25px" h="25px" as={MdCurrencyRupee} color={brandColor} />} />
+          }
+          name="Monthly Expenses"
+          value="₹345.67"
+          growth="+15%"
+        />
+      </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px" mb="20px">
         <TotalSpent />
