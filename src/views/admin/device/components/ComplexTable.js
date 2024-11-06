@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import {
   Box,
   Flex,
@@ -24,7 +22,7 @@ import {
 import Card from 'components/card/Card';
 import Menu from 'components/menu/MainMenu';
 import * as React from 'react';
-import { MdCancel, MdCheckCircle, MdOutlineError, MdWbSunny, MdBolt } from 'react-icons/md';
+import { MdCancel, MdCheckCircle, MdOutlineError, MdWbSunny, MdBolt, MdEdit } from 'react-icons/md';
 
 const columnHelper = createColumnHelper();
 
@@ -57,7 +55,7 @@ export default function EnergySavingsTable(props) {
           fontSize={{ sm: '10px', lg: '12px' }}
           color="gray.400"
         >
-          Device
+         Date
         </Text>
       ),
       cell: (info) => (
@@ -86,24 +84,8 @@ export default function EnergySavingsTable(props) {
             w="24px"
             h="24px"
             me="5px"
-            color={
-              info.getValue() === 'Solar'
-                ? 'yellow.500'
-                : info.getValue() === 'Electric'
-                ? 'blue.500'
-                : info.getValue() === 'E'
-                ? 'green.500'
-                : 'red.500'  // Default for non-renewable or unknown types
-            }
-            as={
-              info.getValue() === 'Solar'
-                ? MdWbSunny  // Sun icon for Solar
-                : info.getValue() === 'Electric'
-                ? MdBolt  // Bolt icon for Electric
-                : info.getValue() === 'Renewable'
-                ? MdCheckCircle
-                : MdCancel  // Default for non-renewable
-            }
+            color={info.getValue() === 'Solar' ? 'yellow.500' : info.getValue() === 'Electric' ? 'blue.500' : 'red.500'}
+            as={info.getValue() === 'Solar' ? MdWbSunny : info.getValue() === 'Electric' ? MdBolt : MdCancel}
           />
           <Text color={textColor} fontSize="sm" fontWeight="700">
             {info.getValue()}
@@ -147,6 +129,30 @@ export default function EnergySavingsTable(props) {
         </Text>
       ),
     }),
+    {
+      id: 'edit',
+      header: () => (
+        <Text
+          justifyContent="space-between"
+          align="center"
+          fontSize={{ sm: '10px', lg: '12px' }}
+          color="gray.400"
+        >
+          Edit
+        </Text>
+      ),
+      cell: (info) => (
+        <Button
+          variant="link"
+          onClick={() => {
+            // Handle the edit action here
+            console.log('Edit clicked for row', info.row.index);
+          }}
+        >
+          <Icon as={MdEdit} w={5} h={5} color="blue.500" />
+        </Button>
+      ),
+    }
   ];
 
   const table = useReactTable({

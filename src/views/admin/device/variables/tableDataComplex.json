@@ -1,78 +1,96 @@
 [
   {
-    "device": "Dishwasher",
+    "device": "09-11-24",
     "energyType": "Solar",
     "time": "08:30 AM",
     "energySavings": 3.5
   },
   {
-    "device": "Washing Machine",
+    "device": "08-11-24",
+    "energyType": "Electric",
+    "time": "08:30 AM",
+    "energySavings": 3.5
+  },
+  {
+    "device": "07-11-24",
+    "energyType": "Electric",
+    "time": "08:30 AM",
+    "energySavings": 3.5
+  },
+  {
+    "device": "06-11-24",
+    "energyType": "Solar",
+    "time": "08:30 AM",
+    "energySavings": 3.5
+  },
+  {
+    "device": "05-11-24",
     "energyType": "Electric",
     "time": "09:15 AM",
     "energySavings": 2.8
   },
   {
-    "device": "Iron",
+    "device": "04-11-24",
     "energyType": "Solar",
     "time": "10:45 AM",
     "energySavings": 1.2
   },
   {
-    "device": "Electric Kettle",
+    "device": "03-11-24",
     "energyType": "Electric",
     "time": "11:20 AM",
     "energySavings": 0.6
   },
   {
-    "device": "Refrigerator",
+    "device": "02-11-24",
     "energyType": "Solar",
     "time": "02:00 PM",
     "energySavings": 4.0
   },
   {
-    "device": "Microwave Oven",
+    "device": "01-11-24",
     "energyType": "Electric",
     "time": "03:30 PM",
     "energySavings": 1.5
   },
   {
-    "device": "Air Conditioner",
+    "device": "31-10-24",
     "energyType": "Solar",
     "time": "04:15 PM",
     "energySavings": 6.0
   },
   {
-    "device": "Ceiling Fan",
+    "device": "30-10-24",
     "energyType": "Electric",
     "time": "05:00 PM",
     "energySavings": 0.8
   },
   {
-    "device": "Laptop Charger",
+    "device": "29-10-24",
     "energyType": "Solar",
     "time": "06:30 PM",
     "energySavings": 0.5
   },
   {
-    "device": "Hair Dryer",
+    "device": "28-10-24",
     "energyType": "Electric",
     "time": "07:45 PM",
     "energySavings": 0.9
   },
   {
-    "device": "Water Heater",
+    "device": "27-10-24",
     "energyType": "Solar",
     "time": "08:00 PM",
     "energySavings": 3.2
   },
   {
-    "device": "Television",
+    "device": "26-10-24",
     "energyType": "Electric",
     "time": "09:15 PM",
     "energySavings": 1.1
   },
   {
-    "device": "Toaster",
+    "device": "25-10-24",
     "energyType": "Solar",
     "time": "10:30 PM",
     "energySavings": 0.4

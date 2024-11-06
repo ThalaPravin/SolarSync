@@ -13,9 +13,9 @@ import TotalSpent from 'views/admin/default/components/TotalSpent';
 import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
 import DailyTraffic from 'views/admin/default/components/DailyTraffic';
 import PieCard from 'views/admin/default/components/PieCard';
-import ComplexTable from 'views/admin/default/components/ComplexTable';
-import { columnsDataComplex } from 'views/admin/default/variables/columnsData';
-import tableDataComplex from 'views/admin/default/variables/tableDataComplex.json';
+import ComplexTable from 'views/admin/device/components/ComplexTable';
+import { columnsDataComplex } from 'views/admin/device/variables/columnsData';
+import tableDataComplex from 'views/admin/device/variables/tableDataComplex.json';
 
 export default function UserReports() {
   const { deviceName } = useParams(); // Get the deviceName from URL
