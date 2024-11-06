@@ -26,6 +26,8 @@ import {
 } from 'views/admin/default/variables/columnsData';
 import tableDataCheck from 'views/admin/default/variables/tableDataCheck.json';
 import tableDataComplex from 'views/admin/default/variables/tableDataComplex.json';
+import ElectricityPrices from './components/PricePrediction';
+import WeatherCard from './components/WeatherCard';
 
 export default function UserReports() {
   // Chakra Color Mode
@@ -40,12 +42,22 @@ export default function UserReports() {
 
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }} gap="20px" mb="20px">
-        
+      <SimpleGrid
+        columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }}
+        gap="20px"
+        mb="20px"
+      >
         {/* Total Solar Energy Produced */}
         <MiniStatistics
           startContent={
-            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="20px" h="20px" as={MdWbSunny} color={brandColor} />} />
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon w="20px" h="20px" as={MdWbSunny} color={brandColor} />
+              }
+            />
           }
           name="Solar Production"
           value={`${solarEnergyProduced} kWh`}
@@ -54,18 +66,36 @@ export default function UserReports() {
         {/* Total Electricity Usage */}
         <MiniStatistics
           startContent={
-            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="25px" h="25px" as={MdFlashOn} color={brandColor} />} />
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon w="25px" h="25px" as={MdFlashOn} color={brandColor} />
+              }
+            />
           }
           name="Electricity Usage"
           value={`${electricityUsage} kWh`}
           growth={`+${energyDifference} KWh`}
         />
-        
 
         {/* Monthly Expenses */}
         <MiniStatistics
           startContent={
-            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="25px" h="25px" as={MdCurrencyRupee} color={brandColor} />} />
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon
+                  w="25px"
+                  h="25px"
+                  as={MdCurrencyRupee}
+                  color={brandColor}
+                />
+              }
+            />
           }
           name="Monthly Expenses"
           value="₹345.67"
@@ -73,7 +103,10 @@ export default function UserReports() {
           time="time"
         />
       </SimpleGrid>
-
+      <Flex gap={5} mt={5} mb={5} >
+        <ElectricityPrices  />
+        <WeatherCard />
+      </Flex>
       <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px" mb="20px">
         <TotalSpent />
         <WeeklyRevenue />
