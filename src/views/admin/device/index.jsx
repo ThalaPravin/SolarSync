@@ -8,7 +8,7 @@ import {
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { MdWbSunny, MdFlashOn, MdCurrencyRupee } from 'react-icons/md';
+import { MdWbSunny, MdFlashOn, MdCurrencyRupee, MdBolt } from 'react-icons/md';
 import MiniCalendar from 'components/calendar/MiniCalendar';
 import MiniStatistics from 'components/card/MiniStatistics';
 import IconBox from 'components/icons/IconBox';
@@ -28,49 +28,60 @@ import tableDataCheck from 'views/admin/default/variables/tableDataCheck.json';
 import tableDataComplex from 'views/admin/default/variables/tableDataComplex.json';
 
 export default function UserReports() {
-  // Chakra Color Mode
   const brandColor = useColorModeValue('brand.500', 'white');
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
 
-  // Sample values for energy difference
-  const solarEnergyProduced = 1200; // in kWh
-  const electricityUsage = 950; // in kWh
-  const energyDifference = solarEnergyProduced - electricityUsage;
-  const differenceColor = energyDifference >= 0 ? "green.500" : "red.500";
+  const energyUsed = 150; // in kWh (example value)
+  const solarEnergyUsage = 55; // in kWh
+  const electricityUsage = 95; // in kWh
+  const expense = 35.79; // in currency
 
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }} gap="20px" mb="20px">
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, '2xl': 4 }} gap="20px" mb="20px">
         
-        {/* Total Solar Energy Produced */}
+        {/* Energy Used */}
+        <MiniStatistics
+          startContent={
+            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="20px" h="20px" as={MdBolt} color={brandColor} />} />
+          }
+          name="Energy Used"
+          value={`${energyUsed} kWh`}
+          growth="+8%"
+          growthColor="green.500"
+        />
+
+        {/* Solar Energy Usage */}
         <MiniStatistics
           startContent={
             <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="20px" h="20px" as={MdWbSunny} color={brandColor} />} />
           }
-          name="Solar Production"
-          value={`${solarEnergyProduced} kWh`}
+          name="Solar Energy Usage"
+          value={`${solarEnergyUsage} kWh`}
+          growth="-5%"
+          growthColor="red.500"
         />
 
-        {/* Total Electricity Usage */}
+        {/* Electricity Usage */}
         <MiniStatistics
           startContent={
             <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="25px" h="25px" as={MdFlashOn} color={brandColor} />} />
           }
           name="Electricity Usage"
           value={`${electricityUsage} kWh`}
-          growth={`+${energyDifference} KWh`}
+          growth="+3%"
+          growthColor="green.500"
         />
-        
 
-        {/* Monthly Expenses */}
+        {/* Expense */}
         <MiniStatistics
           startContent={
             <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="25px" h="25px" as={MdCurrencyRupee} color={brandColor} />} />
           }
-          name="Monthly Expenses"
-          value="₹345.67"
-          growth="+15%"
-          time="time"
+          name="Expense"
+          value={`₹${expense.toFixed(2)}`}
+          growth="+12%"
+          growthColor="green.500"
         />
       </SimpleGrid>
 
@@ -79,21 +90,14 @@ export default function UserReports() {
         <WeeklyRevenue />
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
-        <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
           <DailyTraffic />
           <PieCard />
         </SimpleGrid>
-      </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
         <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
-          <Tasks />
-          <MiniCalendar h="100%" minW="100%" selectRange={false} />
-        </SimpleGrid>
       </SimpleGrid>
     </Box>
   );

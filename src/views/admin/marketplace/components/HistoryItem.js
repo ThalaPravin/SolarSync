@@ -4,10 +4,10 @@ import { Flex, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card.js";
 // Assets
-import { FaEthereum } from "react-icons/fa";
+import { FaEthereum, FaRupeeSign, FaSolarPanel } from "react-icons/fa";
 
 export default function NFT(props) {
-  const { image, name, author, date, price } = props;
+  const { image, name, author, date, price, rate } = props;
   // Chakra Color Mode
   const textColor = useColorModeValue("brands.900", "white");
   const bgItem = useColorModeValue(
@@ -25,10 +25,10 @@ export default function NFT(props) {
       transition='0.2s linear'>
       <Flex direction={{ base: "column" }} justify='center'>
         <Flex position='relative' align='center'>
-          <Image src={image} w='66px' h='66px' borderRadius='20px' me='16px' />
+          {/* <Image src={image} w='66px' h='66px' borderRadius='20px' me='16px' /> */}
           <Flex
             direction='column'
-            w={{ base: "70%", md: "100%" }}
+            w={{ base: "70%", md: "50%" }}
             me={{ base: "4px", md: "32px", xl: "10px", "3xl": "32px" }}>
             <Text
               color={textColor}
@@ -40,7 +40,7 @@ export default function NFT(props) {
               me='14px'>
               {name}
             </Text>
-            <Text
+            {/* <Text
               color='secondaryGray.600'
               fontSize={{
                 base: "sm",
@@ -48,18 +48,26 @@ export default function NFT(props) {
               fontWeight='400'
               me='14px'>
               {author}
+            </Text> */}
+          </Flex>
+          <Flex
+            me={{ base: "4px", md: "32px", xl: "20%", "3xl": "32px" }}
+            align='center'>
+            <Icon as={FaSolarPanel} color={"#02d152"} width='20px' me='7px' />
+            <Text fontWeight='700' fontSize='md' color={"#02d152"}>
+              {"5 KWH"}
             </Text>
           </Flex>
           <Flex
             me={{ base: "4px", md: "32px", xl: "10px", "3xl": "32px" }}
             align='center'>
-            <Icon as={FaEthereum} color={textColor} width='9px' me='7px' />
-            <Text fontWeight='700' fontSize='md' color={textColor}>
+            <Icon as={FaRupeeSign} color={"#02d152"} width='9px' me='7px' />
+            <Text fontWeight='700' fontSize='md' color={"#02d152"}>
               {price}
             </Text>
           </Flex>
-          <Text ms='auto' fontWeight='700' fontSize='sm' color={textColorDate}>
-            {date}
+          <Text ms='auto' fontWeight='700' marginEnd={"30px"} fontSize='sm' color={"#99a120"}>
+            {rate}
           </Text>
         </Flex>
       </Flex>

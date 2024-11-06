@@ -13,6 +13,7 @@ import {
 import MainDashboard from 'views/admin/default';
 import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
+import Device from 'views/admin/device';
 import DataTables from 'views/admin/dataTables';
 import RTL from 'views/admin/rtl';
 
@@ -55,6 +56,13 @@ const routes = [
     path: '/profile',
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     component: <Profile />,
+  }
+  , {
+    name: 'Device Usage',
+    layout: '/admin',
+    path: '/device/:deviceName',
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+    component: <Device />,
   },
   {
     name: 'Login',
@@ -63,7 +71,7 @@ const routes = [
     icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
     component: <SignInCentered />,
   },
-  
+
 ];
 
 export default routes;

@@ -1,25 +1,3 @@
-/*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI - v1.1.0
-=========================================================
-
-* Product Page: https://www.horizon-ui.com/
-* Copyright 2023 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
 import React from "react";
 
 // Chakra imports
@@ -32,6 +10,10 @@ import {
   Text,
   useColorModeValue,
   SimpleGrid,
+  Input,
+  CardBody,
+  Switch,
+  Icon
 } from "@chakra-ui/react";
 
 // Custom components
@@ -54,20 +36,118 @@ import Avatar3 from "assets/img/avatars/avatar3.png";
 import Avatar4 from "assets/img/avatars/avatar4.png";
 import tableDataTopCreators from "views/admin/marketplace/variables/tableDataTopCreators.json";
 import { tableColumnsTopCreators } from "views/admin/marketplace/variables/tableColumnsTopCreators";
+import { MdWbSunny, MdFlashOn, MdCurrencyRupee, MdSell } from 'react-icons/md';
+import MiniCalendar from 'components/calendar/MiniCalendar';
+import MiniStatistics from 'components/card/MiniStatistics';
+import IconBox from 'components/icons/IconBox';
+import CheckTable from 'views/admin/default/components/CheckTable';
+import ComplexTable from 'views/admin/default/components/ComplexTable';
+import DailyTraffic from 'views/admin/default/components/DailyTraffic';
+import PieCard from 'views/admin/default/components/PieCard';
+import Tasks from 'views/admin/default/components/Tasks';
+import TotalSpent from 'views/admin/default/components/TotalSpent';
+import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
 
 export default function Marketplace() {
   // Chakra Color Mode
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorBrand = useColorModeValue("brand.500", "white");
+
+   const brandColor = useColorModeValue('brand.500', 'white');
+   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
+
+   // Sample values for energy difference
+   const solarEnergyProduced = 50; // in kWh
+   const electricityUsage = 44; // in kWh
+   const energyDifference = solarEnergyProduced - electricityUsage;
+   const differenceColor = energyDifference >= 0 ? 'green.500' : 'red.500';
+
+   const [isSellMode, setIsSellMode] = React.useState(false);
+
   return (
-    <Box pt={{ base: "180px", md: "80px", xl: "80px" }}>
+    <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
+      <SimpleGrid
+        columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }}
+        gap="20px"
+        mb="20px"
+      >
+        {/* Total Solar Energy Produced */}
+        <MiniStatistics
+          startContent={
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon w="20px" h="20px" as={MdWbSunny} color={brandColor} />
+              }
+            />
+          }
+          name="Estimated Available Solar Energy"
+          value={`${solarEnergyProduced} kWh`}
+        />
+
+        {/* Total Electricity Usage */}
+        <MiniStatistics
+          startContent={
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon w="25px" h="25px" as={MdFlashOn} color={brandColor} />
+              }
+            />
+          }
+          name="Estimated Usage Today"
+          value={`${electricityUsage} kWh`}
+          growth={`+${energyDifference} KWh`}
+        />
+
+        {/* Monthly Expenses */}
+        <MiniStatistics
+          startContent={
+            <IconBox
+              w="56px"
+              h="56px"
+              bg={boxBg}
+              icon={
+                <Icon
+                  w="25px"
+                  h="25px"
+                  as={MdSell}
+                  color={brandColor}
+                />
+              }
+            />
+          }
+          name="Saleable Energy"
+          value="6 kWh"
+          growth="+15%"
+        />
+      </SimpleGrid>
       <Grid
-        mb='20px'
-        gridTemplateColumns={{ xl: "repeat(3, 1fr)", "2xl": "1fr 0.46fr" }}
-        gap={{ base: "20px", xl: "20px" }}
-        display={{ base: "block", xl: "grid" }}>
-        <Flex
+        mb="20px"
+        gridTemplateColumns={{ xl: 'repeat(3, 1fr)', '1xl': '1fr 0.46fr' }}
+        gap={{ base: '20px', xl: '20px' }}
+        display={{ base: 'block', xl: 'grid' }}
+      >
+        <Card>
+          <Flex justifyItems={'center'} alignItems={'center'} gap={'15px'}>
+            <Text fontWeight={'bold'}>Sell Mode</Text>
+            <Switch
+              checked={isSellMode}
+              onChange={() => setIsSellMode((prev) => !prev)}
+            />
+          </Flex>
+          {isSellMode && (
+            <Text fontWeight={'bold'} textColor={'darkblue'} marginTop={5}>
+              Energy Generated is being provided to Grid directly
+            </Text>
+          )}
+        </Card>
+        {/* <Flex
           flexDirection='column'
           gridArea={{ xl: "1 / 1 / 2 / 3", "2xl": "1 / 1 / 2 / 2" }}>
           <Banner />
@@ -127,11 +207,11 @@ export default function Marketplace() {
                   Avatar1,
                 ]}
                 image={Nft1}
-                currentbid='0.91 ETH'
+                currentbid='5 '
                 download='#'
               />
               <NFT
-                name='ETH AI Brain'
+                name=' AI Brain'
                 author='By Nick Wilson'
                 bidders={[
                   Avatar1,
@@ -144,7 +224,7 @@ export default function Marketplace() {
                   Avatar1,
                 ]}
                 image={Nft2}
-                currentbid='0.91 ETH'
+                currentbid='5 '
                 download='#'
               />
               <NFT
@@ -161,7 +241,7 @@ export default function Marketplace() {
                   Avatar1,
                 ]}
                 image={Nft3}
-                currentbid='0.91 ETH'
+                currentbid='5 '
                 download='#'
               />
             </SimpleGrid>
@@ -192,7 +272,7 @@ export default function Marketplace() {
                   Avatar1,
                 ]}
                 image={Nft4}
-                currentbid='0.91 ETH'
+                currentbid='5 '
                 download='#'
               />
               <NFT
@@ -209,7 +289,7 @@ export default function Marketplace() {
                   Avatar1,
                 ]}
                 image={Nft5}
-                currentbid='0.91 ETH'
+                currentbid='5 '
                 download='#'
               />
               <NFT
@@ -226,75 +306,80 @@ export default function Marketplace() {
                   Avatar1,
                 ]}
                 image={Nft6}
-                currentbid='0.91 ETH'
+                currentbid='5 '
                 download='#'
               />
             </SimpleGrid>
           </Flex>
-        </Flex>
-        <Flex
-          flexDirection='column'
-          gridArea={{ xl: "1 / 3 / 2 / 4", "2xl": "1 / 2 / 2 / 3" }}>
-          <Card px='0px' mb='20px'>
+        </Flex> */}
+        <Flex flexDirection="column" gridArea={{ xl: '1 ', '1xl': '1 ' }}>
+          {/* <Card px='0px' mb='20px'>
             <TableTopCreators
               tableData={tableDataTopCreators}
               columnsData={tableColumnsTopCreators}
             />
-          </Card>
-          <Card p='0px'>
+          </Card> */}
+          <Card p="0px">
             <Flex
-              align={{ sm: "flex-start", lg: "center" }}
-              justify='space-between'
-              w='100%'
-              px='22px'
-              py='18px'>
-              <Text color={textColor} fontSize='xl' fontWeight='600'>
+              align={{ sm: 'flex-start', lg: 'center' }}
+              justify="space-between"
+              w="100%"
+              px="22px"
+              py="18px"
+            >
+              <Text color={textColor} fontSize="xl" fontWeight="600">
                 History
               </Text>
-              <Button variant='action'>See all</Button>
+              <Button variant="action">See all</Button>
             </Flex>
 
             <HistoryItem
-              name='Colorful Heaven'
-              author='By Mark Benjamin'
-              date='30s ago'
+              name="30 / 06 / 2024"
+              author="By Mark Benjamin"
+              date="30s ago"
               image={Nft5}
-              price='0.91 ETH'
+              price={2.5 * 5}
+              rate={2.5}
             />
             <HistoryItem
-              name='Abstract Colors'
-              author='By Esthera Jackson'
-              date='58s ago'
+              name="25 / 06 / 2024"
+              author="By Esthera Jackson"
+              date="58s ago"
               image={Nft1}
-              price='0.91 ETH'
+              price={4.8 * 5}
+              rate={4.8}
             />
             <HistoryItem
-              name='ETH AI Brain'
-              author='By Nick Wilson'
-              date='1m ago'
+              name="20 / 06 / 2024"
+              author="By Nick Wilson"
+              date="1m ago"
               image={Nft2}
-              price='0.91 ETH'
+              price={5 * 5}
+              rate={5}
             />
             <HistoryItem
-              name='Swipe Circles'
-              author='By Peter Will'
-              date='1m ago'
+              name="15 / 06 / 2024"
+              author="By Peter Will"
+              date="1m ago"
               image={Nft4}
-              price='0.91 ETH'
+              price={3.4 * 5}
+              rate={3.4}
             />
             <HistoryItem
-              name='Mesh Gradients '
-              author='By Will Smith'
-              date='2m ago'
+              name="20 / 06 / 2024"
+              author="By Will Smith"
+              date="2m ago"
               image={Nft3}
-              price='0.91 ETH'
+              price={4.2 * 5}
+              rate={4.2}
             />
             <HistoryItem
-              name='3D Cubes Art'
-              author='By Manny Gates'
-              date='3m ago'
+              name="15 / 06 / 2024"
+              author="By Manny Gates"
+              date="3m ago"
               image={Nft6}
-              price='0.91 ETH'
+              price={3.9 * 5}
+              rate={3.9}
             />
           </Card>
         </Flex>
