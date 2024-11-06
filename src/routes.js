@@ -7,6 +7,7 @@ import {
   MdHome,
   MdLock,
   MdOutlineShoppingCart,
+  MdEnergySavingsLeaf,
 } from 'react-icons/md';
 
 // Admin Imports
@@ -34,7 +35,7 @@ const routes = [
     path: '/nft-marketplace',
     icon: (
       <Icon
-        as={MdOutlineShoppingCart}
+        as={MdEnergySavingsLeaf}
         width="20px"
         height="20px"
         color="inherit"
@@ -50,14 +51,14 @@ const routes = [
     path: '/data-tables',
     component: <DataTables />,
   },
+  // {
+  //   name: 'User Profile',
+  //   layout: '/admin',
+  //   path: '/profile',
+  //   icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+  //   component: <Profile />,
+  // }, 
   {
-    name: 'User Profile',
-    layout: '/admin',
-    path: '/profile',
-    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
-    component: <Profile />,
-  }
-  , {
     name: 'Device Usage',
     layout: '/admin',
     path: '/device/:deviceName',

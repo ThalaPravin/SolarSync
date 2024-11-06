@@ -178,16 +178,16 @@ export default function HeaderLinks(props) {
               fontWeight="700"
               color={textColor}
             >
-              👋&nbsp; Hey, Adela
+              👋&nbsp; Hey, Atharva
             </Text>
           </Flex>
           <Flex flexDirection="column" p="10px">
             <MenuItem borderRadius="8px" px="14px">
               <Text fontSize="sm">Profile Settings</Text>
             </MenuItem>
-            <MenuItem borderRadius="8px" px="14px">
+            {/* <MenuItem borderRadius="8px" px="14px">
               <Text fontSize="sm">Newsletter Settings</Text>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem color="red.400" borderRadius="8px" px="14px">
               <Text fontSize="sm">Log out</Text>
             </MenuItem>
