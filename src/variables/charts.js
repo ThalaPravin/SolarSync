@@ -1,5 +1,6 @@
-// Daily Traffic Dashboards Default
+// variables/charts.js
 
+// Daily Traffic Dashboard
 export const barChartDataDailyTraffic = [
   {
     name: "Daily Traffic",
@@ -104,18 +105,13 @@ export const barChartOptionsDailyTraffic = {
 };
 
 // Consumption Users Reports
-
 export const barChartDataConsumption = [
   {
-    name: "PRODUCT A",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "Solar",
+    data: [120, 70, 330, 490, 320, 350, 360, 320, 380],
   },
   {
-    name: "PRODUCT B",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
-  },
-  {
-    name: "PRODUCT C",
+    name: "Electricity",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
   },
 ];
@@ -141,7 +137,7 @@ export const barChartOptionsConsumption = {
     theme: "dark",
   },
   xaxis: {
-    categories: ["17", "18", "19", "20", "21", "22", "23", "24", "25"],
+    categories: ["1-11-24", "2-11-24", "3-11-24", "4-11-24", "5-11-24", "6-11-24", "7-11-24" ,"8-11-24" , "9-11-24"],
     show: false,
     labels: {
       show: true,
@@ -170,7 +166,6 @@ export const barChartOptionsConsumption = {
       },
     },
   },
-
   grid: {
     borderColor: "rgba(163, 174, 208, 0.3)",
     show: true,
@@ -208,10 +203,14 @@ export const barChartOptionsConsumption = {
   },
 };
 
+// Pie Chart Data and Options
+export const pieChartData = [63, 25, 12];
+
 export const pieChartOptions = {
-  labels: ["Your files", "System", "Empty"],
+  labels: ["Solar", "Electricity", "Other"],
   colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
   chart: {
+    type: "pie",
     width: "50px",
   },
   states: {
@@ -227,14 +226,14 @@ export const pieChartOptions = {
   dataLabels: {
     enabled: false,
   },
-  hover: { mode: null },
+  hover: {
+    mode: null,
+  },
   plotOptions: {
     donut: {
       expandOnClick: false,
-      donut: {
-        labels: {
-          show: false,
-        },
+      labels: {
+        show: false,
       },
     },
   },
@@ -247,10 +246,7 @@ export const pieChartOptions = {
   },
 };
 
-export const pieChartData = [63, 25, 12];
-
-// Total Spent Default
-
+// Total Spent Line Chart Data and Options
 export const lineChartDataTotalSpent = [
   {
     name: "Revenue",

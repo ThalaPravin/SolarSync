@@ -12,6 +12,7 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Button,
 } from '@chakra-ui/react';
 import {
   createColumnHelper,
@@ -33,6 +34,8 @@ export default function EnergySavingsTable(props) {
   console.log("Received tableData:", tableData); // Debug: Check if data is received correctly
 
   const [sorting, setSorting] = React.useState([]);
+  const [pageIndex, setPageIndex] = React.useState(0);
+  const [pageSize, setPageSize] = React.useState(5);
   const textColor = useColorModeValue('secondaryGray.900', 'white');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.100');
 
@@ -151,6 +154,10 @@ export default function EnergySavingsTable(props) {
     columns,
     state: {
       sorting,
+      pagination: {
+        pageIndex,
+        pageSize,
+      },
     },
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
@@ -172,7 +179,7 @@ export default function EnergySavingsTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Smart Sceduling
+          Smart Scheduling
         </Text>
         <Menu />
       </Flex>
@@ -210,7 +217,7 @@ export default function EnergySavingsTable(props) {
           <Tbody>
             {table
               .getRowModel()
-              .rows.slice(0, 5)
+              .rows.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize)
               .map((row) => (
                 <Tr key={row.id}>
                   {row.getVisibleCells().map((cell) => (
@@ -230,6 +237,20 @@ export default function EnergySavingsTable(props) {
               ))}
           </Tbody>
         </Table>
+        <Flex justifyContent="space-between" mt={4}>
+          <Button
+            onClick={() => setPageIndex((old) => Math.max(old - 1, 0))}
+            isDisabled={pageIndex === 0}
+          >
+            Previous
+          </Button>
+          <Button
+            onClick={() => setPageIndex((old) => Math.min(old + 1, Math.ceil(data.length / pageSize) - 1))}
+            isDisabled={pageIndex >= Math.ceil(data.length / pageSize) - 1}
+          >
+            Next
+          </Button>
+        </Flex>
       </Box>
     </Card>
   );

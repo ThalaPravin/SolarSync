@@ -60,10 +60,25 @@ export default function WeeklyRevenue(props) {
         </Button>
       </Flex>
 
+      {/* Legend */}
+      <Flex justify='flex-end' align='center' w='100%' px='15px' py='5px'>
+        <Flex align='center' mr='15px'>
+          <Box w='12px' h='12px' bg='#8466F8' borderRadius='full' mr='5px' />
+          <Text color={textColor} fontSize='sm'>Solar</Text>
+        </Flex>
+        <Flex align='center'>
+          <Box w='12px' h='12px' bg='#1E90FF' borderRadius='full' mr='5px' />
+          <Text color={textColor} fontSize='sm'>Electricity</Text>
+        </Flex>
+      </Flex>
+
       <Box h='240px' mt='auto'>
         <BarChart
           chartData={barChartDataConsumption}
-          chartOptions={barChartOptionsConsumption}
+          chartOptions={{
+            ...barChartOptionsConsumption,
+            colors: ["#FFBB00", "#1E90FF"], // Solar (yellow) and Electricity (blue)
+          }}
         />
       </Box>
     </Card>
