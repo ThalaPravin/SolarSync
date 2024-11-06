@@ -1,37 +1,29 @@
+import React from 'react';
 import {
-  Avatar,
   Box,
-  Flex,
-  FormLabel,
   Icon,
-  Select,
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { MdWbSunny, MdFlashOn, MdCurrencyRupee, MdBolt } from 'react-icons/md';
-import MiniCalendar from 'components/calendar/MiniCalendar';
+import { useParams } from 'react-router-dom'; // Import useParams
 import MiniStatistics from 'components/card/MiniStatistics';
 import IconBox from 'components/icons/IconBox';
-import React from 'react';
-import CheckTable from 'views/admin/default/components/CheckTable';
-import ComplexTable from 'views/admin/default/components/ComplexTable';
-import DailyTraffic from 'views/admin/default/components/DailyTraffic';
-import PieCard from 'views/admin/default/components/PieCard';
-import Tasks from 'views/admin/default/components/Tasks';
 import TotalSpent from 'views/admin/default/components/TotalSpent';
 import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
-import {
-  columnsDataCheck,
-  columnsDataComplex,
-} from 'views/admin/default/variables/columnsData';
-import tableDataCheck from 'views/admin/default/variables/tableDataCheck.json';
+import DailyTraffic from 'views/admin/default/components/DailyTraffic';
+import PieCard from 'views/admin/default/components/PieCard';
+import ComplexTable from 'views/admin/default/components/ComplexTable';
+import { columnsDataComplex } from 'views/admin/default/variables/columnsData';
 import tableDataComplex from 'views/admin/default/variables/tableDataComplex.json';
 
 export default function UserReports() {
+  const { deviceName } = useParams(); // Get the deviceName from URL
   const brandColor = useColorModeValue('brand.500', 'white');
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
 
-  const energyUsed = 150; // in kWh (example value)
+  // Example data for energy usage and expense
+  const energyUsed = 150; // in kWh
   const solarEnergyUsage = 55; // in kWh
   const electricityUsage = 95; // in kWh
   const expense = 35.79; // in currency
@@ -40,6 +32,17 @@ export default function UserReports() {
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3, '2xl': 4 }} gap="20px" mb="20px">
         
+        {/* Display Device Name */}
+        <MiniStatistics
+          startContent={
+            <IconBox w="56px" h="56px" bg={boxBg} icon={<Icon w="20px" h="20px" as={MdBolt} color={brandColor} />} />
+          }
+          name="Device Name"
+          value={deviceName} // Display the device name here
+          // growth="N/A"
+          growthColor="gray.500"
+        />
+
         {/* Energy Used */}
         <MiniStatistics
           startContent={
@@ -89,11 +92,13 @@ export default function UserReports() {
         <TotalSpent />
         <WeeklyRevenue />
       </SimpleGrid>
+      
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
           <DailyTraffic />
           <PieCard />
         </SimpleGrid>
+        
         <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
