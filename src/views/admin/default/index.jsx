@@ -35,9 +35,9 @@ export default function UserReports() {
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
 
   // Sample values for energy difference
-  const solarEnergyProduced = 1200; // in kWh
-  const electricityUsage = 950; // in kWh
-  const energyDifference = solarEnergyProduced - electricityUsage;
+  const solarEnergyProduced = 200; // in kWh
+  const electricityUsage = 300; // in kWh
+  const energyDifference = -30;
   const differenceColor = energyDifference >= 0 ? "green.500" : "red.500";
 
   return (
@@ -77,7 +77,7 @@ export default function UserReports() {
           }
           name="Electricity Usage"
           value={`${electricityUsage} kWh`}
-          growth={`+${energyDifference} KWh`}
+          growth={`${energyDifference} KWh`}
         />
 
         {/* Monthly Expenses */}
@@ -99,7 +99,7 @@ export default function UserReports() {
           }
           name="Monthly Expenses"
           value="₹345.67"
-          growth="+15%"
+          growth="-15%"
           time="time"
         />
       </SimpleGrid>
@@ -112,11 +112,9 @@ export default function UserReports() {
         <WeeklyRevenue />
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
-        <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
+        {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
           <DailyTraffic />
           <PieCard />
-        </SimpleGrid>
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
         <ComplexTable
